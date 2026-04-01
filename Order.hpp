@@ -7,10 +7,8 @@ private:
     int timestamp;
 
 public:
-
     Order(int id, char type, float price, int timestamp);
     ~Order();
-
     int getId();
     char getType();
     float getPrice();

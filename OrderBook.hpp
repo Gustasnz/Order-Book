@@ -6,7 +6,6 @@ private:
     // para armazenar ordens de compra, venda e transações
 
 public:
-
     OrderBook();
     ~OrderBook();
 
