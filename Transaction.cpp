@@ -4,6 +4,7 @@ Transaction::Transaction(int buy_order_id, int sell_order_id, float execution_pr
 	buy = buy_order_id;
 	sell = sell_order_id;
 	price = execution_price;
+	next = nullptr;
 }
 
 Transaction::~Transaction(){

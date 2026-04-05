@@ -5,6 +5,7 @@ Order::Order(int id, char type, float price, int timestamp){
     this->type = type;
     this->price = price;
     this->timestamp = timestamp;
+    this->next = nullptr;
 }
 
 Order::~Order(){

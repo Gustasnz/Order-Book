@@ -1,20 +1,14 @@
+#include "Order.hpp"
+#include "Transaction.hpp"
+#include <iostream>
+
 class OrderBook {
 
 private:
-
-    struct Node {
-        Order* order;
-        Node* next;
-    };
-
-    struct TNode {
-        Transaction* transaction;
-        TNode* next;
-    };
-
-    Node* buyHead;
-    Node* sellHead;
-    TNode* transHead;
+    Order* first_buy = nullptr;
+    Order* first_sell = nullptr;
+    Transaction* first_transac = nullptr;
+    void addTransaction(int buy_id, int sell_id, float price);
 
 public:
     OrderBook();
@@ -30,6 +24,4 @@ public:
     void printBuyOrders();
     void printSellOrders();
     void printTransactions();
-
-    // Outros métodos auxiliares, se necessário
 };
