@@ -2,8 +2,19 @@ class OrderBook {
 
 private:
 
-    // Estruturas internas escolhidas pelos alunos
-    // para armazenar ordens de compra, venda e transações
+    struct Node {
+        Order* order;
+        Node* next;
+    };
+
+    struct TNode {
+        Transaction* transaction;
+        TNode* next;
+    };
+
+    Node* buyHead;
+    Node* sellHead;
+    TNode* transHead;
 
 public:
     OrderBook();
