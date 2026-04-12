@@ -35,16 +35,6 @@ Internamente, utiliza **listas encadeadas** para ordens de compra, venda e trans
 - **Sell** casa com maior preço de Buy (`buy ≥ sell`)
 - Empate resolvido por timestamp
 
-## Exemplo
-
-```cpp
-OrderBook ob;
-
-ob.submit(Order(1, 'B', 100.0, 1));
-ob.submit(Order(2, 'S', 90.0, 2));
-
-ob.printTransactions();
-
 ## Compilação
 Para compilar o projeto, utilize um compilador C++ (como o `g++`) executando:
 
