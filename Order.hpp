@@ -7,10 +7,10 @@ private:
     int timestamp;
 
 public:
-    Order* proxima;
-
     Order(int id, char type, float price, int timestamp);
-    ~Order();    
+    ~Order();
+    Order* proxima;
+	Order() {}
     int getId();
     char getType();
     float getPrice();

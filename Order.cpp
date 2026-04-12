@@ -5,22 +5,22 @@ Order::Order(int id, char type, float price, int timestamp){
     this->type = type;
     this->price = price;
     this->timestamp = timestamp;
-    this->next = nullptr;
+    this->proxima = nullptr;
 }
 
 Order::~Order(){
 	// nothing to delete, right?
 }
 
-Order::GetId(){
+int Order::getId(){
 	return id;
 }
-Order::GetType(){
+char Order::getType(){
 	return type;
 }
-Order::GetPrice(){
+float Order::getPrice(){
 	return price;
 }
-Order::GetTimestamp(){
+int Order::getTimestamp(){
 	return timestamp;
 }

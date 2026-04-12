@@ -1,22 +1,22 @@
 #include "Transaction.hpp"
 
 Transaction::Transaction(int buy_order_id, int sell_order_id, float execution_price){
-	buy = buy_order_id;
-	sell = sell_order_id;
-	price = execution_price;
-	next = nullptr;
+	this->buy_order_id = buy_order_id;
+	this->sell_order_id = sell_order_id;
+	this->execution_price = execution_price;
+	this->proxima = nullptr;
 }
 
 Transaction::~Transaction(){
 	// may delete buy and sell if they were pointers
 }
 
-Trasaction::GetBuyOrderId(){
-	return buy;
+int Transaction::getBuyOrderId(){
+	return buy_order_id;
 }
-Trasaction::GetSellOrderId(){
-	return sell;
+int Transaction::getSellOrderId(){
+	return sell_order_id;
 }
-Trasaction::GetExecutionPrice(){
-	return price;
+float Transaction::getExecutionPrice(){
+	return execution_price;
 }

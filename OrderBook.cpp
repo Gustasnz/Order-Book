@@ -174,7 +174,7 @@ Order* OrderBook::getSellOrders(int* n) {
 Transaction* OrderBook::getTransactions(int* n) {
     int count = 0;
     int i = 0;
-    Transaction* curr = first_transac;
+    Transaction* transac = first_transac;
     while (transac) {
         count++;
         transac = transac->proxima;
@@ -182,7 +182,7 @@ Transaction* OrderBook::getTransactions(int* n) {
     if (count == 0) return nullptr;
     Transaction* transac_list = new Transaction[count];
     transac = first_transac;
-    while (curr) {
+    while (transac) {
         transac_list[i++] = Transaction(
             transac->getBuyOrderId(),
             transac->getSellOrderId(),
@@ -196,42 +196,42 @@ void OrderBook::printBuyOrders() {
         cout << "Nenhuma ordem de compra...\n";
         return;
     }
-    Order* curr = first_buy;
+    Order* buy = first_buy;
     cout << "Ordens de compra:\n";
-    while (curr) {
-        cout << "[" << curr->getId() << " | "
-             << curr->getPrice() << " | "
-             << curr->getTimestamp() << "]\n";
-        curr = curr->proxima;
+    while (buy) {
+        cout << "[ Id: " << buy->getId()
+             << " | Price: " << buy->getPrice()
+             << " | Timestamp: " << buy->getTimestamp() << " ]\n";
+        buy = buy->proxima;
     }
 }
 
 void OrderBook::printSellOrders() {
-    if (!first_buy) {
+    if (!first_sell) {
         cout << "Nenhuma ordem de venda...\n";
         return;
     }
-    Order* curr = first_buy;
+    Order* sell = first_sell;
     cout << "Ordens de venda:\n";
-    while (curr) {
-        cout << "[" << curr->getId() << " | "
-             << curr->getPrice() << " | "
-             << curr->getTimestamp() << "]\n";
-        curr = curr->proxima;
+    while (sell) {
+        cout << "[ Id: " << sell->getId()
+             << " | Price: " << sell->getPrice()
+             << " | Timestamp: " << sell->getTimestamp() << " ]\n";
+        sell = sell->proxima;
     }
 }
 
 void OrderBook::printTransactions() {
-    if (!first_buy) {
+    if (!first_transac) {
         cout << "Nenhuma transação...\n";
         return;
     }
-    Order* curr = first_buy;
+    Transaction* transac = first_transac;
     cout << "Transações:\n";
-    while (curr) {
-        cout << "[" << curr->getId() << " | "
-             << curr->getPrice() << " | "
-             << curr->getTimestamp() << "]\n";
-        curr = curr->proxima;
+    while (transac) {
+        cout << "[ Buy Id: " << transac->getBuyOrderId()
+             << " | Sell Id: " << transac->getSellOrderId()
+             << " | Price: " << transac->getExecutionPrice() << " ]\n";
+        transac = transac->proxima;
     }
 }
